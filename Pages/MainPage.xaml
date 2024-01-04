@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarSpotter.MainPage">
+
+    <ScrollView>
+        <StackLayout
+            Padding="30,20"
+            Spacing="20">
+
+            <Label
+                Text="CarSpotter"
+                FontSize="24"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Image
+                Source="car_spotter_logo.png"
+                HeightRequest="200"
+                Aspect="AspectFit"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label
+                Text="Register a Spotted Car"
+                FontSize="18"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry
+                x:Name="CarNameEntry"
+                Placeholder="Car Name"
+                HorizontalOptions="FillAndExpand" />
+
+            <Entry
+                x:Name="CarModelEntry"
+                Placeholder="Car Model"
+                HorizontalOptions="FillAndExpand" />
+
+            <Button
+                Text="Submit"
+                Clicked="OnSubmitClicked"
+                HorizontalOptions="CenterAndExpand" />
+
+            <ListView
+                x:Name="CarListView"
+                ItemsSource="{Binding SpottedCars}"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding CarName}" Detail="{Binding CarModel}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
